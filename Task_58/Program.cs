@@ -48,9 +48,7 @@ int[,] MultiplicationMatrix(int[,] matrixOne, int[,] matrixTwo)
             {
                 matrixMultiplication[i, j] += matrixOne[i, k] * matrixTwo[k, j];
             }
-           
         }
-    
     }
     return matrixMultiplication;
 }

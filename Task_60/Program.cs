@@ -5,3 +5,44 @@
 // 34(1,0,0) 41(1,1,0)
 // 27(0,0,1) 90(0,1,1)
 // 26(1,0,1) 55(1,1,1)
+
+void FillMatrixRnd(int[,,] matrix)
+{
+    Random rnd = new Random();
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            for (int k = 0; k < matrix.GetLength(2); k++)
+            {
+                matrix[i, j, k] = rnd.Next(10, 100);
+            }
+        }
+    }
+}
+
+void PrintMatrix(int[,,] matrix)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            for (int k = 0; k < matrix.GetLength(2); k++)
+            {
+                System.Console.Write($"{matrix[i, j, k]} ({i}, {j}, {k}); \t");
+            }
+            System.Console.WriteLine();
+        }
+        System.Console.WriteLine();
+    }
+}
+System.Console.Write("Введите кол-во строк: ");
+int row = Convert.ToInt32(Console.ReadLine());
+System.Console.Write("Введите кол-во столбцов: ");
+int column = Convert.ToInt32(Console.ReadLine());
+System.Console.Write("Введите кол-во страниц: ");
+int page = Convert.ToInt32(Console.ReadLine());
+int[,,] matrix = new int[row, column, page];
+
+FillMatrixRnd(matrix);
+PrintMatrix(matrix);
